@@ -1,3 +1,4 @@
+安裝與使用:
 1.在終端輸入brew install git
 
 2.在終端機輸入git --version可以查看git版本
@@ -16,6 +17,12 @@
 
 9.上方訊息列可以輸入剛加入的版本的註記
 
-10.首次下載檔案可在終端機輸入git clone 連結.git即可下載資料
 
-11.
+推送檔案至Github:
+1.到終端機設定要上傳的檔案資料夾路徑
+
+2.在終端機輸入git clone https://github.com/使用者名稱/Repository專案名稱.git
+
+3.在終端機輸入git remote add origin https://github.com/使用者名稱/Repository專案名稱.git
+
+4.在終端機輸入git push -u origin main即可上傳到該專案資要夾
