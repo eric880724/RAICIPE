@@ -1,0 +1,17 @@
+1.在終端輸入brew install git
+
+2.在終端機輸入git --version可以查看git版本
+
+3.在終端機輸入git config --global user.name "使用者名稱"，可以設定使用者名稱
+
+4.在終端機輸入git config --global user.email "使用者郵箱"，可以設定使用者郵箱
+
+5.在終端機輸入git config --list可以查詢使用者名稱和使用者郵箱
+
+6.在VS Code安裝git graph，可在VS Code左下角按Git Graph查看
+
+7.VS Code左側有git功能，選擇初始化存放庫
+
+8.可以在git的"變更"分類將變更過的資料按"+"符號並加入"暫存的變更"
+
+9.上方訊息列可以輸入剛加入的版本的註記
