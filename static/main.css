@@ -1,0 +1,859 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.icon {
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: auto;
+  margin: 0 auto;
+  padding: 0;
+  opacity: 1;
+}
+
+.header-container {
+  width: 100%;
+  height: 800px;
+  padding: 3%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+
+.video {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.logo img {
+  width: 140px;
+  height: 100px;
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 0.3; /* 縮減寬度 */
+  width: 30%; /* 縮減寬度 */
+  margin-bottom: 10px;
+  margin-left: -75px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgb(255, 255, 255, 0.3);
+  color: rgb(0, 0, 0, 0.5);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  transition: border-color 0.8s ease;
+}
+
+.search-bar input:hover {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #b21d24;
+}
+
+.search-bar .magnifier-icon {
+  font-size: 24px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.search-bar .magnifier-icon:hover {
+  transform: scale(1.2);
+}
+
+.search-bar .magnifier-icon:active {
+  transform: scale(0.95);
+}
+
+.dropdown {
+  position: relative;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.line {
+  height: 4px;
+  background-color: rgb(255, 255, 255);
+  transition: transform 0.3s ease, left 0.3s ease;
+}
+
+.dropdown:hover .line {
+  transform: scaleX(1.2);
+}
+
+.dropdown.active .line-1 {
+  transform: rotate(45deg) translateY(2px);
+}
+
+.dropdown.active .line-2 {
+  transform: translateX(-20px);
+}
+
+.dropdown.active .line-3 {
+  transform: rotate(-45deg) translateY(-2px);
+}
+
+.dropdown.active .menu {
+  display: block;
+}
+
+.dropdown .menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: -200px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+  width: 200px;
+  text-align: left;
+}
+
+.dropdown .menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.3s, transform 0.2s ease-in-out,
+    box-shadow 0.3s ease;
+}
+
+.dropdown .menu a:hover {
+  background-color: #ff2e39;
+  transform: scale(1.02);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  margin: auto;
+}
+
+.dropdown .menu a:focus {
+  background-color: #b21d24;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+#sign-in-btn,
+#sign-up-btn {
+  padding: 10px 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  margin-left: 17px;
+}
+
+#sign-in-btn:hover,
+#sign-up-btn:hover {
+  transform: scale(1.03);
+}
+
+#sign-in-btn:active,
+#sign-up-btn:active {
+  transform: scale(0.98);
+}
+
+/* 網站簡介內容 */
+.content {
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding-top: 60%; /* 增加外框高度 */
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.golden-ratio-right-1 {
+  background-image: url("/static/images/13.png");
+  background-size: 110%;
+  background-attachment: fixed; /* 讓背景固定在視窗 */
+  background-position: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38.2%;
+  height: 100%;
+  background-color: #b1b1b1;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2.5px solid black;
+}
+
+.golden-ratio-left-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 61.8%;
+  height: 100%;
+  color: #ffffff;
+  background-color: rgb(0, 0, 0);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* 使flex元素垂直排列 */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.golden-ratio-left-1 h1 {
+  font-family: "Oleo Script", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  white-space: pre-line; /* 保持HTML中的換行 */
+  max-width: 80%; /* 控制文字寬度 */
+  margin: 0 auto; /* 使文字水平置中 */
+}
+
+.golden-ratio-left-1 p {
+  font-family: "Oleo Script", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-top: 50px; /* 調整間距 */
+}
+
+/* Slideshow */
+.slideshow-container {
+  max-width: 100%;
+  height: 800px;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* 幻燈片基本樣式 */
+.mySlides {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 幻燈片圖片樣式 */
+.mySlides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 往前&往後按鈕 */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* 往前按鈕位置 */
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* 往後按鈕位置 */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(152, 152, 152, 0.8);
+}
+
+/* 頁碼 */
+.numbertext-1,
+.numbertext-3 {
+  color: #ffffff;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+
+.numbertext-2,
+.numbertext-4 {
+  color: #000000;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+/* 食材種類 */
+.text-1, .text-3 {
+  color: #ffffff;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.text-2, .text-4 {
+  color: #000000;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+/* 滑動過渡效果 */
+.mySlides {
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+
+/* 掃描頁面內容 */
+.scan {
+  position: relative;
+  width: 100%;
+  padding-top: 35%; /* 增加外框高度 */
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.golden-ratio-right-2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 62.4%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* 改為縱向排列以容納標題和功能區 */
+  justify-content: center;
+  align-items: center;
+}
+
+.golden-ratio-left-2 {
+  background-image: url("/static/images/54.png");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 37.6%;
+  height: 100%;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 25px solid black;
+}
+
+/* 掃描功能特色 */
+.features-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.5rem;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a202c;
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  font-size: 1.125rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* 掃描按鈕 */
+.scan-btn {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  margin: 4px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.3s;
+}
+
+.scan-btn:hover {
+  background-color: rgb(175, 175, 175);
+  color: black;
+}
+
+.scan-btn:active {
+  background-color: #000000;
+  color: white;
+}
+
+/* 烹飪動畫 */
+#cooking {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 20px;
+}
+
+/* 氣泡動畫 */
+/* .bubble {
+  position: absolute;
+  border-radius: 100%;
+  box-shadow: 0 0 0.25px #4d4d4d;
+  opacity: 0;
+}
+
+.bubble:nth-child(1) {
+  margin-bottom: 2.5px;
+  margin-left: 5px;
+  left: 58%;
+  width: 5px;
+  height: 5px;
+  background-color: #ffffff;
+  animation: bubble 2s cubic-bezier(0.53, 0.16, 0.39, 0.96) infinite;
+}
+
+.bubble:nth-child(2) {
+  margin-bottom: 3px;
+  margin-left: 5px;
+  left: 52%;
+  width: 4.5px;
+  height: 4.5px;
+  background-color: #ffffff;
+  animation: bubble 2s ease-in-out 0.35s infinite;
+}
+
+.bubble:nth-child(3) {
+  margin-bottom: 1.8px;
+  margin-left: 5px;
+  left: 50%;
+  width: 4.5px;
+  height: 4.5px;
+  background-color: #ffffff;
+  animation: bubble 1.5s cubic-bezier(0.53, 0.16, 0.39, 0.96) 0.55s infinite;
+} */
+
+/* 平底鍋翻動區域 */
+#area {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 60%;
+  background-color: transparent;
+  transform-origin: 15% 60%;
+  /* 變形原點 */
+  animation: flip 2.1s ease-in-out infinite;
+  /* 翻動動畫 */
+}
+
+/* 平底鍋兩側 */
+#sides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: 15% 60%;
+  animation: switchSide 2.1s ease-in-out infinite; /* 切換側面動畫 */
+}
+
+/* 平底鍋把手 */
+#handle {
+  position: absolute;
+  bottom: 18%;
+  right: 80%;
+  width: 35%;
+  height: 20%;
+  background-color: transparent;
+  border-top: 1px solid #ffffff; /* 白色把手線條 */
+  border-left: 1px solid transparent;
+  border-radius: 100%;
+  transform: rotate(20deg) rotateX(0deg) scale(1.3, 0.9);
+}
+
+/* 平底鍋本體 */
+#pan {
+  position: absolute;
+  bottom: 20%;
+  right: 30%;
+  width: 60%;
+  height: 12%;
+  background-color: #ffffff;
+  border-radius: 0 0 1.4em 1.4em; /* 圓弧底部 */
+  transform-origin: -15% 0;
+}
+
+/* 煎餅容器 */
+#pancake {
+  position: absolute;
+  top: 24%;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(85deg);
+  animation: jump 2.1s ease-in-out infinite; /* 跳躍動畫 */
+}
+
+/* 煎餅本體 */
+#pastry {
+  position: absolute;
+  bottom: 26%;
+  right: 37%;
+  width: 40%;
+  height: 45%;
+  background-color: #ffffff;
+  box-shadow: 0 0 3px 0 #ffffff; /* 白色陰影效果 */
+  border-radius: 100%;
+  transform-origin: -20% 0;
+  animation: fly 2.1s ease-in-out infinite; /* 飛行動畫 */
+}
+
+/* 跳躍動畫關鍵幀 */
+@keyframes jump {
+  0% {
+    top: 24%;
+    transform: rotateX(85deg);
+  }
+
+  25% {
+    top: 10%;
+    transform: rotateX(0deg);
+  }
+
+  50% {
+    top: 30%;
+    transform: rotateX(85deg);
+  }
+
+  75% {
+    transform: rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateX(85deg);
+  }
+}
+
+/* 翻動動畫關鍵幀 */
+@keyframes flip {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  5% {
+    transform: rotate(-27deg);
+  }
+
+  30%,
+  50% {
+    transform: rotate(0deg);
+  }
+
+  55% {
+    transform: rotate(27deg);
+  }
+
+  83.3% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* 切換側面動畫關鍵幀 */
+@keyframes switchSide {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+/* 飛行動畫關鍵幀 */
+@keyframes fly {
+  0% {
+    bottom: 26%;
+    transform: rotate(0deg);
+  }
+
+  10% {
+    bottom: 40%;
+  }
+
+  50% {
+    bottom: 26%;
+    transform: rotate(-190deg);
+  }
+
+  80% {
+    bottom: 40%;
+  }
+
+  100% {
+    bottom: 26%;
+    transform: rotate(0deg);
+  }
+}
+
+/* 氣泡動畫關鍵幀 */
+@keyframes bubble {
+  0% {
+    transform: scale(0.15, 0.15);
+    top: 80%;
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.1, 1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.33, 0.33);
+    top: 60%;
+    opacity: 0;
+  }
+}
+
+/* 頁尾 */
+.footer {
+  background-color: #1a202c;
+  color: #a0aec0;
+  padding: 4rem 6rem 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-section h3 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.quick-links {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links li {
+  margin-bottom: 0.75rem;
+}
+
+.quick-links a {
+  color: #a0aec0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.quick-links a:hover {
+  color: white;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  color: #a0aec0;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #2d3748;
+  color: #718096;
+}
+
+@media (max-width: 768px) {
+  .video {
+    display: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .logo img {
+    width: 50vw;
+  }
+
+  .main-content {
+    flex-direction: column;
+  }
+
+  #sign-in-btn,
+  #sign-up-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .footer {
+    padding: 2rem;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .video {
+    display: 100%;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}

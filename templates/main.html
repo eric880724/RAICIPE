@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAICIPE主頁</title>
+    <link rel="stylesheet" href="/static/main.css"> <!-- 連結food.css -->
+    <link rel="icon" href="/static/images/logo-7.png"> <!-- 網頁圖示 -->
+    <style>
+        /* 插入字型 */
+        @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&family=Oleo+Script:wght@400;700&display=swap');
+        /* 插入烹飪動畫 */
+        @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 主頁面 -->
+        <div class="header-container">
+            <header class="header">
+                <video autoplay muted loop class="video"> <!-- 形象影片 -->
+                    <source src="/static/videos/cooking-video.mp4" type="video/mp4">
+                </video>
+                <div class="logo img">
+                    <a href="/templates/main.html"> <!-- Logo連結主頁 -->
+                        <img src="/static/images/logo-7.png" alt="Logo">
+                    </a>
+                </div>
+                <div class="search-bar input"> <!-- 搜尋欄位 -->
+                    <input type="text" placeholder="搜尋食譜..." style="color: black;">
+                    <span class="magnifier-icon" id="search-btn"> <!-- 放大鏡圖示 -->
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <g fill="none" stroke-linecap="round">
+                                <!-- 鏡框 -->
+                                <circle cx="11" cy="11" r="7" stroke="#4A5568" stroke-width="3" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="#4A5568" stroke-width="3" />
+                                <!-- 鏡片效果 -->
+                                <circle cx="11" cy="11" r="6" stroke="#E2E8F0" stroke-width="1.5" opacity="0.5" />
+                                <!-- 醒目效果 -->
+                                <path d="M8 8.5Q9 7 11 7" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+                            </g>
+                        </svg>
+                    </span>
+                </div>
+                <!-- 下拉選單 -->
+                <div class="dropdown">
+                    <div class="line line-1"></div> <!-- 選單圖示 -->
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
+                    <div class="menu">
+                        <a href="/templates/main.html">主頁</a>
+                        <a href="/templates/scan.html">掃描食材</a>
+                        <div class="#sign-in-btn, #sign-up-btn"> <!-- 登入按鈕 -->
+                            <button id="sign-in-btn">登入</button>
+                            <button id="sign-up-btn">註冊</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- 網站簡介內容 -->
+        <div class="content">
+            <div class="golden-ratio-right-1"></div>
+            <div class="golden-ratio-left-1">
+                <h1>"Plats étoilés, perfectionnés par vous.
+
+                    Avez-vous choisi ?
+
+                    Sublimez vos légumes, pas vos doutes.
+
+                    Parce que le grand art commence par une assiette"</h1>
+                <p>Jinshu</p>
+            </div>
+        </div>
+        <!-- Slideshow -->
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <div class="numbertext-1">1 / 4</div>
+                <a href="/templates/fruit.html">
+                    <img src="/static/images/43.png" alt="水果類">
+                </a>
+                <div class="text-1">水果類</div>
+            </div>
+            <div class="mySlides">
+                <div class="numbertext-2">2 / 4</div>
+                <a href="/templates/vegetable.html">
+                    <img src="/static/images/121.png" alt="蔬菜類">
+                </a>
+                <div class="text-2">蔬菜類</div>
+            </div>
+            <div class="mySlides">
+                <div class="numbertext-3">3 / 4</div>
+                <a href="/templates/seasoning.html">
+                    <img src="/static/images/491.png" alt="調味類">
+                </a>
+                <div class="text-3">調味類</div>
+            </div>
+            <div class="mySlides">
+                <div class="numbertext-4">4 / 4</div>
+                <a href="/templates/legume-nut-grain-starche.html">
+                    <img src="/static/images/3.png" alt="豆類、堅果穀物、澱粉類">
+                </a>
+                <div class="text-4">豆類、堅果穀物、澱粉類</div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <!-- 前＆後按鈕 -->
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <!-- 掃描頁面內容 -->
+        <div class="scan">
+            <div class="golden-ratio-right-2">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                            <circle cx="12" cy="13" r="4" />
+                        </svg>
+                        <h3 class="feature-title">蔬果圖像辨識</h3>
+                        <p class="feature-description">掃描你的食材並讓AI辨識</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        <h3 class="feature-title">人工智慧圖像分析</h3>
+                        <p class="feature-description">及時辨識食材</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                        <h3 class="feature-title">生成食譜</h3>
+                        <p class="feature-description">獲得客製化食譜</p>
+                    </div>
+                </div>
+                <div class="scan-btn-container"> <!-- 掃描按鈕&煮飯動畫 -->
+                    <a href="/templates/scan.html">
+                        <button class="scan-btn">
+                            現在掃描
+                            <div id="cooking">
+                                <!-- <div class="bubble"></div> -->
+                                <!-- <div class="bubble"></div> -->
+                                <!-- <div class="bubble"></div> -->
+                                <div id="area">
+                                    <div id="sides">
+                                        <div id="pan"></div>
+                                        <div id="handle"></div>
+                                    </div>
+                                    <div id="pancake">
+                                        <div id="pastry"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="golden-ratio-left-2"></div>
+        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>關於我們</h3>
+                    <p>為蔬果愛好者打造的AI食譜網站，具備掃描食材功能和食譜推薦功能</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速連結</h3>
+                    <ul class="quick-links">
+                        <li><a href="/templates/main.html">主頁</a></li>
+                        <li><a href="/templates/scan.html">掃描食材</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>聯絡我們</h3>
+                    <p>support@raicipe.com</p>
+                    <p>+886 2-7602-0857</p>
+                </div>
+                <div class="footer-section">
+                    <h3>社群</h3>
+                    <div class="social-links">
+                        <svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Facebook 圖示 -->
+                            <g transform="translate(30,20)">
+                                <rect x="0" y="0" width="60" height="60" rx="15" fill="#1877F2" />
+                                <path d="M38 31h-5v21h-9V31h-4v-7h4v-4.5c0-4 2-7.5 8-7.5h6v7h-4c-2 0-2 1-2 2v3h6l-1 7z"
+                                    fill="white" />
+                            </g>
+                            <!-- X 圖示 -->
+                            <g transform="translate(120,20)">
+                                <rect x="0" y="0" width="60" height="60" rx="15" fill="#000000" />
+                                <path d="M18 18l8 11l-8 13h6l5.5-9l7.5 9h6l-9-11l7-13h-6l-4.5 7l-6-7z" fill="white" />
+                                <path d="M42 18l-8 11l8 13h-6l-5.5-9l-7.5 9h-6l9-11l-7-13h6l4.5 7l6-7z" fill="white" />
+                            </g>
+                            <!-- Instagram 圖示 -->
+                            <g transform="translate(210,20)">
+                                <rect x="0" y="0" width="60" height="60" rx="15" fill="#E4405F" />
+                                <rect x="15" y="15" width="30" height="30" rx="8" fill="none" stroke="white"
+                                    stroke-width="3" />
+                                <circle cx="30" cy="30" r="7" fill="none" stroke="white" stroke-width="3" />
+                                <circle cx="44" cy="16" r="2" fill="white" />
+                            </g>
+                            <!-- YouTube 圖示 -->
+                            <g transform="translate(300,20)">
+                                <rect x="0" y="0" width="60" height="60" rx="12" fill="#FF0000" />
+                                <path d="M50 25c0-4-3-7-7-7H17c-4 0-7 3-7 7v10c0 4 3 7 7 7h26c4 0 7-3 7-7V25z"
+                                    fill="white" />
+                                <path d="M28 35V25l10 5-10 5z" fill="#FF0000" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 AI Recipe Scanner. All rights reserved.</p>
+            </div>
+        </footer>
+        <!-- 導入javascript -->
+        <script src="/static/dropdown-icon.js"></script>
+        <script src="/static/ingredient.js"></script>
+</body>
+
+</html>

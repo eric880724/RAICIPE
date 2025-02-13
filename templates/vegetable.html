@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAICIPE食材推薦-蔬菜類</title>
+    <link rel="stylesheet" href="/static/vegetable.css"> <!-- 連結food.css -->
+    <link rel="icon" href="/static/images/logo-7.png"> <!-- 網頁圖示 -->
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo img">
+                <a href="/templates/main.html"> <!-- Logo連結主頁 -->
+                    <img src="/static/images/logo-7.png" alt="Logo">
+                </a>
+            </div>
+            <div class="search-bar input"> <!-- 搜尋欄位 -->
+                <input type="text" placeholder="搜尋食譜..." style="color: black;">
+                <span class="magnifier-icon" id="search-btn"> <!-- 放大鏡圖示 -->
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <g fill="none" stroke-linecap="round">
+                            <!-- 鏡框 -->
+                            <circle cx="11" cy="11" r="7" stroke="#4A5568" stroke-width="3" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="#4A5568" stroke-width="3" />
+                            <!-- 鏡片效果 -->
+                            <circle cx="11" cy="11" r="6" stroke="#E2E8F0" stroke-width="1.5" opacity="0.5" />
+                            <!-- 醒目效果 -->
+                            <path d="M8 8.5Q9 7 11 7" stroke="#FFFFFF" stroke-width="2" opacity="0.6" />
+                        </g>
+                    </svg>
+                </span>
+            </div>
+            <!-- 下拉選單 -->
+            <div class="dropdown">
+                <div class="line line-1"></div> <!-- 選單圖示 -->
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="menu">
+                    <a href="/templates/main.html">主頁</a>
+                    <a href="/templates/scan.html">掃描食材</a>
+                    <div class="#sign-in-btn, #sign-up-btn"> <!-- 登入按鈕 -->
+                        <button id="sign-in-btn">登入</button>
+                        <button id="sign-up-btn">註冊</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 食材圖鑑內容 -->
+        <div class="content">
+            <!-- 標題區域 -->
+            <div class="gallery-header">
+                <h1>食材圖鑑</h1>
+                <p>蔬菜類</p>
+            </div>
+            <!-- 食材網格 -->
+            <div id="ingredients-grid" class="ingredients-grid">
+                <!-- 食材卡片將由JavaScript動態生成 -->
+            </div>
+        </div>
+    </div>
+    <!-- 模態視窗結構 -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+    <!-- 導入javascript -->
+    <script src="/static/dropdown-icon.js"></script>
+    <script src="/static/vegetable.js"></script>
+</body>
+</html>

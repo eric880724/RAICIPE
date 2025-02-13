@@ -1,0 +1,63 @@
+0: Almond 杏仁
+1: Apple 蘋果
+2: Apricot 杏子
+3: Artichoke 朝鮮薊
+4: Asparagus 蘆筍
+5: Avocado 酪梨
+6: Banana 香蕉
+7: Bean curd/Tofu 豆腐
+8: Bell pepper/Capsicum 甜椒/燈籠椒
+9: Blackberry 黑莓
+10: Blueberry 藍莓
+11: Broccoli 花椰菜
+12: Brussels sprouts 球芽甘藍
+13: Cantaloup/Cantaloupe 哈密瓜 (重複!!!!!!!!)
+14: Carrot 胡蘿蔔
+15: Cauliflower 白花椰菜
+16: Cayenne/Cayenne spice/Cayenne pepper/Cayenne pepper spice/Red pepper/Red pepper 辣椒粉/紅辣椒
+17: Celery 芹菜
+18: Cherry 櫻桃
+19: Chickpea/Garbanzo 鷹嘴豆
+20: Chili/Chili vegetable/Chili pepper/Chili pepper vegetable/Chilli/Chilli vegetable/Chilly/Chilly 辣椒
+21: Clementine 克萊門氏小柑橘
+22: Coconut/Cocoanut 椰子
+23: Edible corn/Corn/Maize 玉米
+24: Cucumber/Cuke 小黃瓜
+25: Date/Date fruit 棗子
+26: Eggplant/Aubergine 茄子
+27: Fig/Fig fruit 無花果
+28: Garlic/Ail 大蒜
+29: Ginger/Gingerroot 薑
+30: Strawberry 草莓 (重複!!!!!!!!)
+31: Gourd 葫蘆
+32: Grape 葡萄
+33: Green bean 四季豆
+34: Green onion/Spring onion/Scallion 青蔥
+35: Tomato 番茄 (重複!!!!!!!!)
+36: Kiwi fruit 奇異果
+37: Lemon 檸檬
+38: Lettuce 萵苣
+39: Lime 酸橙
+40: Mandarin orange 橘子
+41: Melon 哈密瓜 (重複!!!!!!!!)
+42: Mushroom 蘑菇
+43: Onion 洋蔥
+44: Orange/Orange fruit 橙子
+45: Papaya 木瓜
+46: Pea/Pea food 豌豆
+47: Peach 桃子
+48: Pear 梨
+49: Persimmon 柿子
+50: Pickle 醃黃瓜
+51: Pineapple 鳳梨
+52: Potato 馬鈴薯
+53: Prune 梅乾
+54: Pumpkin 南瓜
+55: Radish/Daikon 白蘿蔔
+56: Raspberry 覆盆子
+57: Strawberry 草莓 (重複!!!!!!!!)
+58: Sweet potato 地瓜
+59: Tomato 番茄 (重複!!!!!!!!)
+60: Turnip 蕪菁
+61: Watermelon 西瓜
+62: Zucchini/Courgette 櫛瓜
