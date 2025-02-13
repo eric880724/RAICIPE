@@ -19,6 +19,8 @@
 
 
 推送檔案至Github:
+
+ㄧ.終端機指令上傳檔案
 1.到終端機設定要上傳的檔案資料夾路徑
 
 2.在終端機輸入git clone https://github.com/使用者名稱/Repository專案名稱.git
@@ -26,3 +28,10 @@
 3.在終端機輸入git remote add origin https://github.com/使用者名稱/Repository專案名稱.git
 
 4.在終端機輸入git push -u origin main即可上傳到該專案資要夾
+
+二.VS Code介面上傳檔案
+1.到終端機設定要上傳的檔案資料夾路徑
+
+2.在終端機輸入git clone https://github.com/使用者名稱/Repository專案名稱.git
+
+3.到VS Code在git的"變更"分類將變更過的資料按"+"符號並加入"暫存的變更"
