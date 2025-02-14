@@ -332,48 +332,26 @@
   background-color: rgba(152, 152, 152, 0.8);
 }
 
-/* 頁碼 */
-.numbertext-1 {
-  color: #ffffff;
-  font-size: 30px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-  z-index: 2;
-}
-
-.numbertext-2,
-.numbertext-3,
-.numbertext-4 {
-  color: #000000;
-  font-size: 30px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-  z-index: 2;
-}
-
-/* 食材種類 */
-.text-1 {
-  color: #ffffff;
-  font-size: 30px;
-  padding: 8px 12px;
+/* 食材種類字體 */
+.text-1, .text-2, .text-3, .text-4 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 36px;
+  padding: 12px 16px;
   position: absolute;
   bottom: 8px;
   width: 100%;
   text-align: center;
   z-index: 2;
+  letter-spacing: 1px;
+}
+
+.text-1 {
+  color: #ffffff;
 }
 
 .text-2, .text-3, .text-4 {
   color: #000000;
-  font-size: 30px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-  z-index: 2;
 }
 
 /* 滑動過渡效果 */
