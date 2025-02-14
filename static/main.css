@@ -333,21 +333,20 @@
 }
 
 /* 頁碼 */
-.numbertext-1,
-.numbertext-3 {
+.numbertext-1 {
   color: #ffffff;
-  font-size: 12px;
+  font-size: 30px;
   padding: 8px 12px;
   position: absolute;
   top: 0;
   z-index: 2;
 }
 
-
 .numbertext-2,
+.numbertext-3,
 .numbertext-4 {
   color: #000000;
-  font-size: 12px;
+  font-size: 30px;
   padding: 8px 12px;
   position: absolute;
   top: 0;
@@ -355,9 +354,9 @@
 }
 
 /* 食材種類 */
-.text-1, .text-3 {
+.text-1 {
   color: #ffffff;
-  font-size: 15px;
+  font-size: 30px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
@@ -366,9 +365,9 @@
   z-index: 2;
 }
 
-.text-2, .text-4 {
+.text-2, .text-3, .text-4 {
   color: #000000;
-  font-size: 15px;
+  font-size: 30px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
