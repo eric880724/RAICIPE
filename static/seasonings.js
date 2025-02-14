@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 假設我們有一個包含食材名稱和圖片的數組
     const ingredients = [
-        { name: 'Red pepper 辣椒粉', image: '/static/images/1.jpg' },
-        { name: 'Chili pepper 辣椒', image: '/static/images/2.jpg' },
-        { name: 'Garlic 大蒜', image: '/static/images/3.jpg' },
-        { name: 'Ginger 薑', image: '/static/images/4.jpg' },
-        { name: 'Onion 洋蔥', image: '/static/images/5.jpg' },
-        { name: 'Pickle 醃黃瓜', image: '/static/images/6.jpg' },
-        { name: 'Prune 梅乾', image: '/static/images/7.jpg' },
-        { name: 'Celery 芹菜', image: '/static/images/8.jpg' },
+        { name: 'Red pepper 辣椒粉', image: '/static/images/541.png' },
+        { name: 'Chili pepper 辣椒', image: '/static/images/542.png' },
+        { name: 'Garlic 大蒜', image: '/static/images/543.png' },
+        { name: 'Ginger 薑', image: '/static/images/544.png' },
+        { name: 'Onion 洋蔥', image: '/static/images/545.png' },
+        { name: 'Pickle 醃黃瓜', image: '/static/images/546.png' },
+        { name: 'Prune 梅乾', image: '/static/images/547.png' },
+        { name: 'Celery 芹菜', image: '/static/images/548.png' },
     ];
 
     // 動態生成食材卡片
