@@ -333,26 +333,27 @@
 }
 
 /* 食材種類 */
-.text-1, .text-2, .text-3, .text-4 {
+/* .text-1, .text-2, .text-3, .text-4 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 36px;
+  font-size: 100px;
   padding: 12px 16px;
   position: absolute;
   bottom: 8px;
   width: 100%;
   text-align: center;
+  justify-content: center;
   z-index: 2;
   letter-spacing: 1px;
 }
 
-.text-1 {
+.text-1, .text-2, .text-4 {
   color: #ffffff;
 }
 
-.text-2, .text-3, .text-4 {
+.text-3 {
   color: #000000;
-}
+} */
 
 /* 滑動過渡效果 */
 .mySlides {
@@ -772,8 +773,8 @@
   color: #718096;
 }
 
-/* Responsive Design */
-/* 4K+ 超大螢幕 (2560px 以上) */
+/* 響應式設計 */
+/* 4K + 超大螢幕(2560px以上) */
 @media screen and (min-width: 2560px) {
   .header-container {
     height: 1000px;
@@ -804,7 +805,7 @@
   }
 }
 
-/* 桌面螢幕 (1200px - 2559px) */
+/* 桌面螢幕(1200px ~ 2559px) */
 @media screen and (min-width: 1200px) and (max-width: 2559px) {
   .container {
     width: 100%;
@@ -813,7 +814,7 @@
   }
 }
 
-/* 筆電螢幕 (992px - 1199px) */
+/* 筆電螢幕(992px ~ 1199px) */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .header-container {
     height: 600px;
@@ -837,7 +838,7 @@
   }
 }
 
-/* 平板 (768px - 991px) */
+/* 平板(768px ~ 991px) */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .header-container {
     height: 500px;
@@ -894,7 +895,7 @@
   }
 }
 
-/* 大型手機 (576px - 767px) */
+/* 大型手機(576px ~ 767px) */
 @media screen and (min-width: 576px) and (max-width: 767px) {
   .header-container {
     height: 400px;
@@ -979,7 +980,7 @@
   }
 }
 
-/* 小型手機 (575px 以下) */
+/* 小型手機 (575px以下) */
 @media screen and (max-width: 575px) {
   .header-container {
     height: 300px;
