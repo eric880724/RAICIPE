@@ -332,7 +332,7 @@
   background-color: rgba(152, 152, 152, 0.8);
 }
 
-/* 食材種類字體 */
+/* 食材種類 */
 .text-1, .text-2, .text-3, .text-4 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
@@ -772,65 +772,318 @@
   color: #718096;
 }
 
-@media (max-width: 768px) {
-  .video {
-    display: 100%;
+/* Responsive Design */
+/* 4K+ 超大螢幕 (2560px 以上) */
+@media screen and (min-width: 2560px) {
+  .header-container {
+    height: 1000px;
   }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
+  
+  .golden-ratio-left-1 h1 {
+    font-size: 3rem;
   }
-
-  .search-bar {
-    width: 100%;
-    margin-bottom: 10px;
+  
+  .golden-ratio-left-1 p {
+    font-size: 2.5rem;
   }
-
-  .sidebar {
-    width: 100%;
-    margin-bottom: 20px;
+  
+  .slideshow-container {
+    height: 1000px;
   }
-
-  .logo img {
-    width: 50vw;
+  
+  .text-1, .text-2, .text-3, .text-4 {
+    font-size: 48px;
   }
-
-  .main-content {
-    flex-direction: column;
+  
+  .feature-title {
+    font-size: 2rem;
   }
-
-  #sign-in-btn,
-  #sign-up-btn {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 10px;
-  }
-
-  .footer {
-    padding: 2rem;
-  }
-
-  .footer-content {
-    grid-template-columns: repeat(2, 1fr);
+  
+  .feature-description {
+    font-size: 1.5rem;
   }
 }
 
-@media (max-width: 480px) {
+/* 桌面螢幕 (1200px - 2559px) */
+@media screen and (min-width: 1200px) and (max-width: 2559px) {
+  .container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+}
+
+/* 筆電螢幕 (992px - 1199px) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .header-container {
+    height: 600px;
+  }
+  
+  .search-bar {
+    flex: 0.4;
+    width: 40%;
+  }
+  
+  .golden-ratio-left-1 h1 {
+    font-size: 1.8rem;
+  }
+  
+  .slideshow-container {
+    height: 600px;
+  }
+  
+  .features-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* 平板 (768px - 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .header-container {
+    height: 500px;
+  }
+  
+  .header {
+    padding: 10px 20px;
+  }
+  
+  .search-bar {
+    flex: 0.5;
+    width: 50%;
+    margin-left: 0;
+  }
+  
+  .logo img {
+    width: 120px;
+    height: 85px;
+  }
+  
+  .golden-ratio-left-1 h1 {
+    font-size: 1.5rem;
+  }
+  
+  .golden-ratio-left-1 p {
+    font-size: 1.2rem;
+    margin-top: 30px;
+  }
+  
+  .slideshow-container {
+    height: 500px;
+  }
+  
+  .content {
+    padding-top: 80%;
+  }
+  
+  .scan {
+    padding-top: 50%;
+  }
+  
+  .features-grid {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* 大型手機 (576px - 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .header-container {
+    height: 400px;
+    padding: 2%;
+  }
+  
   .header {
     padding: 10px;
   }
-
+  
   .search-bar {
-    flex-direction: column;
+    flex: 0.7;
+    width: 70%;
+    margin-left: 0;
+  }
+  
+  .logo img {
+    width: 100px;
+    height: 70px;
+  }
+  
+  .golden-ratio-left-1 {
     width: 100%;
+    position: relative;
+    padding: 15px;
   }
-
-  .video {
-    display: 100%;
+  
+  .golden-ratio-right-1 {
+    display: none;
   }
-
+  
+  .golden-ratio-left-1 h1 {
+    font-size: 1.3rem;
+  }
+  
+  .golden-ratio-left-1 p {
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  
+  .slideshow-container {
+    height: 400px;
+  }
+  
+  .content {
+    padding-top: 100%;
+  }
+  
+  .scan {
+    padding-top: 120%;
+  }
+  
+  .golden-ratio-left-2 {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    border-width: 15px;
+  }
+  
+  .golden-ratio-right-2 {
+    width: 100%;
+    position: relative;
+    padding: 15px;
+  }
+  
+  .features-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .feature-card {
+    padding: 1rem;
+  }
+  
+  .footer {
+    padding: 2rem 1rem;
+  }
+  
   .footer-content {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* 小型手機 (575px 以下) */
+@media screen and (max-width: 575px) {
+  .header-container {
+    height: 300px;
+    padding: 2%;
+  }
+  
+  .header {
+    padding: 5px;
+  }
+  
+  .search-bar {
+    flex: 0.9;
+    width: 90%;
+    margin-left: 0;
+  }
+  
+  .search-bar input {
+    font-size: 14px;
+  }
+  
+  .logo img {
+    width: 80px;
+    height: 60px;
+  }
+  
+  .golden-ratio-left-1 {
+    width: 100%;
+    position: relative;
+    padding: 10px;
+  }
+  
+  .golden-ratio-right-1 {
+    display: none;
+  }
+  
+  .golden-ratio-left-1 h1 {
+    font-size: 1.1rem;
+  }
+  
+  .golden-ratio-left-1 p {
+    font-size: 0.9rem;
+    margin-top: 15px;
+  }
+  
+  .slideshow-container {
+    height: 300px;
+  }
+  
+  .text-1, .text-2, .text-3, .text-4 {
+    font-size: 24px;
+  }
+  
+  .content {
+    padding-top: 130%;
+  }
+  
+  .scan {
+    padding-top: 150%;
+  }
+  
+  .golden-ratio-left-2 {
+    width: 100%;
+    height: 40%;
+    position: relative;
+    border-width: 10px;
+  }
+  
+  .golden-ratio-right-2 {
+    width: 100%;
+    position: relative;
+    padding: 10px;
+  }
+  
+  .features-grid {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .feature-card {
+    padding: 0.8rem;
+  }
+  
+  .feature-title {
+    font-size: 1.2rem;
+  }
+  
+  .feature-description {
+    font-size: 1rem;
+  }
+  
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .footer-section p {
+    font-size: 0.9rem;
   }
 }
