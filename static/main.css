@@ -17,20 +17,20 @@
   opacity: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 確保容器至少有視窗高度 */
-  position: relative; /* 添加相對定位 */
+  min-height: 100vh;
 }
 
 .header-container {
   width: 100%;
-  height: 100vh; /* 改為視窗高度 */
-  min-height: 800px; /* 設定最小高度 */
+  height: 100vh;
+  min-height: 800px;
   padding: 3%;
+  position: relative;
 }
 
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* 內容物排列 */
   align-items: center;
   padding: 15px 0;
   flex-wrap: wrap;
@@ -218,9 +218,6 @@
   height: 100vh;
   background-color: #f0f0f0;
   overflow: hidden;
-  display: flex;
-  margin: 0;
-  padding: 0;
 }
 
 .golden-ratio-right-1 {
@@ -284,10 +281,10 @@
 
 /* Slideshow */
 .slideshow-container {
-  max-width: 100%;
-  height: 800px;
   position: relative;
-  margin: auto;
+  width: 100%;
+  height: 800px;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -403,10 +400,10 @@
 
 .golden-ratio-left-2 {
   background-image: url("/static/images/54.png");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
+  background-position: right;
+  position: relative;
   top: 0;
   left: 0;
   width: 37.6%;
@@ -796,27 +793,30 @@
   .header-container {
     height: 1000px;
   }
-  
+
   .golden-ratio-left-1 h1 {
     font-size: 3rem;
   }
-  
+
   .golden-ratio-left-1 p {
     font-size: 2.5rem;
   }
-  
+
   .slideshow-container {
     height: 1000px;
   }
-  
-  .text-1, .text-2, .text-3, .text-4 {
+
+  .text-1,
+  .text-2,
+  .text-3,
+  .text-4 {
     font-size: 48px;
   }
-  
+
   .feature-title {
     font-size: 2rem;
   }
-  
+
   .feature-description {
     font-size: 1.5rem;
   }
@@ -824,10 +824,16 @@
 
 /* 桌面螢幕(1200px ~ 2559px) */
 @media screen and (min-width: 1200px) and (max-width: 2559px) {
-  .container {
+  .header-container {
+    height: 100vh;
     width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
+    min-height: 50vh; /* 控制與下方的間隙 */
+  }
+
+  .video {
+    position: absolute;
+    width: 100%;
+    height: 101vh;
   }
 }
 
@@ -911,172 +917,313 @@
   }
 }
 
-/* 筆電螢幕(992px ~ 1199px) */
-@media screen and (min-width: 992px) and (max-width: 1199px) {
+/* 筆電螢幕(1024px ~ 1199px) */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
   .header-container {
-    height: 600px;
+    height: 50vh;
+    width: 100%;
+    min-height: 50vh; /* 控制與下方的間隙 */
   }
-  
+
+  .video {
+    position: absolute;
+    width: 100%;
+    height: 51vh;
+  }
+
   .slideshow-container {
     height: 600px;
   }
-  
+
   .search-bar {
     flex: 0.4;
     width: 40%;
   }
-  
+
   .golden-ratio-left-1 h1 {
     font-size: 1.8rem;
   }
-  
+
   .features-grid {
     gap: 1.5rem;
   }
 }
 
-/* 平板(768px ~ 991px) */
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  .header-container,
+/* 平板(768px ~ 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .header-container {
+    height: 50vh;
+    width: 100%;
+    min-height: 50vh; /* 控制與下方的間隙 */
+  }
+
+  .video {
+    position: absolute;
+    width: 100%;
+    height: 51vh;
+  }
+  
   .slideshow-container {
     height: 500px;
   }
-  
+
   .header {
     padding: 10px 20px;
   }
-  
+
   .search-bar {
     flex: 0.5;
     width: 50%;
     margin-left: 0;
   }
-  
+
   .logo img {
     width: 120px;
     height: 85px;
   }
-  
-  .golden-ratio-left-1 h1 {
-    font-size: 1.5rem;
+
+  .golden-ratio-left-1 {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 350px;
+    order: 2;
+    margin: 0;
+    padding: 20px;
   }
-  
-  .golden-ratio-left-1 p {
-    font-size: 1.2rem;
-    margin-top: 30px;
-  }
-  
-  .content,
-  .scan {
-    height: 100vh;
-    min-height: 600px;
+
+  .golden-ratio-right-1 {
+    position: relative;
+    background-position: right; /* 調整圖片顯示位置 */
+    width: 100%;
+    height: 50vh;
+    min-height: 350px;
+    order: 1;
     margin: 0;
     padding: 0;
   }
-  
-  .features-grid {
-    flex-direction: row;
-    gap: 1rem;
+
+  .golden-ratio-left-1 h1 {
+    font-size: 1.8rem;
   }
-  
+
+  .golden-ratio-left-1 p {
+    font-size: 1.4rem;
+    margin-top: 30px;
+  }
+
+  .content {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .scan {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .golden-ratio-left-2 {
+    position: relative;
+    background-position: center;
+    width: 100%;
+    height: 50vh;
+    min-height: 350px;
+    order: 2;
+    margin: 0;
+    padding: 0;
+    border: 10px solid black;
+  }
+
+  .golden-ratio-right-2 {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 350px;
+    order: 1;
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
   .feature-card {
     padding: 1.5rem;
   }
-  
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1.2rem;
+  }
+
+  .scan-btn-container {
+    text-align: center;
+  }
+
+  .footer {
+    padding: 3rem 2rem;
+  }
+
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-section p {
+    font-size: 1rem;
   }
 }
 
 /* 大型手機(576px ~ 767px) */
 @media screen and (min-width: 576px) and (max-width: 767px) {
   .header-container {
-    height: 400px;
-    padding: 2%;
+    height: 50vh;
+    width: 100%;
+    min-height: 50vh; /* 控制與下方的間隙 */
   }
-  
+
+  .video {
+    position: absolute;
+    width: 100%;
+    height: 51vh;
+  }
+
   .slideshow-container {
     height: 400px;
   }
-  
+
   .header {
     padding: 10px;
   }
-  
+
   .search-bar {
     flex: 0.7;
     width: 70%;
     margin-left: 0;
   }
-  
+
   .logo img {
     width: 100px;
     height: 70px;
   }
-  
+
   .golden-ratio-left-1 {
-    width: 61.8%;
-    position: absolute;
-    padding: 15px;
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 300px;
+    order: 2;
+    margin: 0;
+    padding: 20px;
   }
-  
+
   .golden-ratio-right-1 {
-    width: 38.2%;
-    display: block;
-    position: absolute;
+    position: relative;
+    background-position: right; /* 調整圖片顯示位置 */
+    width: 100%;
+    height: 50vh;
+    min-height: 250px;
+    order: 1;
+    margin: 0;
+    padding: 0;
   }
-  
+
   .golden-ratio-left-1 h1 {
     font-size: 1.3rem;
   }
-  
+
   .golden-ratio-left-1 p {
     font-size: 1rem;
     margin-top: 20px;
   }
-  
+
   .content {
     height: 100vh;
     min-height: 600px;
-    padding-top: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     margin: 0;
+    padding: 0;
   }
-  
+
   .scan {
     height: 100vh;
     min-height: 600px;
-    padding-top: 0;
-    margin: 0;
-  }
-  
-  .golden-ratio-left-2 {
-    width: 37.6%;
-    height: 100%;
-    position: absolute;
-    border-width: 15px;
-  }
-  
-  .golden-ratio-right-2 {
-    width: 62.4%;
-    height: 100%;
-    position: absolute;
-    padding: 15px;
-  }
-  
-  .features-grid {
+    position: relative;
+    display: flex;
     flex-direction: column;
-    gap: 1rem;
+    margin: 0;
+    padding: 0;
   }
-  
+
+  .golden-ratio-left-2 {
+    position: relative;
+    background-position: 15%; /* 調整圖片顯示位置 */
+    width: 100%;
+    height: 50vh;
+    min-height: 250px;
+    order: 2;
+    margin: 0;
+    padding: 0;
+  }
+
+  .golden-ratio-right-2 {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 300px;
+    order: 1;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
   .feature-card {
     padding: 1rem;
   }
-  
+
+  .scan-btn-container {
+    text-align: center;
+  }
+
   .footer {
     padding: 2rem 1rem;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -1086,116 +1233,165 @@
 /* 小型手機 (575px以下) */
 @media screen and (max-width: 575px) {
   .header-container {
-    height: 300px;
-    padding: 2%;
+    height: 50vh;
+    width: 100%;
+    min-height: 50vh; /* 控制與下方的間隙 */
   }
-  
+
+  .video {
+    position: absolute;
+    width: 100%;
+    height: 51vh;
+  }
+
   .slideshow-container {
     height: 300px;
   }
-  
+
   .header {
     padding: 5px;
   }
-  
+
   .search-bar {
     flex: 0.9;
     width: 90%;
     margin-left: 0;
   }
-  
+
   .search-bar input {
     font-size: 14px;
   }
-  
+
   .logo img {
     width: 80px;
     height: 60px;
   }
-  
+
   .golden-ratio-left-1 {
-    width: 61.8%;
-    position: absolute;
-    padding: 10px;
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 250px;
+    order: 2;
+    margin: 0;
+    padding: 15px;
   }
-  
+
   .golden-ratio-right-1 {
-    width: 38.2%;
-    display: block;
-    position: absolute;
+    position: relative;
+    background-position: right; /* 調整圖片顯示位置 */
+    width: 100%;
+    height: 50vh;
+    min-height: 250px;
+    order: 1;
+    margin: 0;
+    padding: 0;
   }
-  
+
   .golden-ratio-left-1 h1 {
     font-size: 1.1rem;
   }
-  
+
   .golden-ratio-left-1 p {
     font-size: 0.9rem;
     margin-top: 15px;
   }
-  
-  .text-1, .text-2, .text-3, .text-4 {
+
+  .text-1,
+  .text-2,
+  .text-3,
+  .text-4 {
     font-size: 24px;
   }
-  
+
   .content {
     height: 100vh;
-    min-height: 600px;
-    padding-top: 0;
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     margin: 0;
+    padding: 0;
   }
-  
+
   .scan {
     height: 100vh;
-    min-height: 600px;
-    padding-top: 0;
-    margin: 0;
-  }
-  
-  .golden-ratio-left-2 {
-    width: 37.6%;
-    height: 100%;
-    position: absolute;
-    border-width: 10px;
-  }
-  
-  .golden-ratio-right-2 {
-    width: 62.4%;
-    height: 100%;
-    position: absolute;
-    padding: 10px;
-  }
-  
-  .features-grid {
+    min-height: 500px;
+    position: relative;
+    display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    margin: 0;
+    padding: 0;
   }
-  
+
+  .golden-ratio-left-2 {
+    position: relative;
+    background-position: 15%; /* 調整圖片顯示位置 */
+    width: 100%;
+    height: 50vh;
+    min-height: 250px;
+    order: 2;
+    margin: 0;
+    padding: 0;
+  }
+
+  .golden-ratio-right-2 {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 250px;
+    order: 1;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
   .feature-card {
     padding: 0.8rem;
   }
-  
+
+  .feature-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 1rem;
+  }
+
   .feature-title {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
   }
-  
+
   .feature-description {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
-  
+
+  .scan-btn-container {
+    text-align: center;
+  }
+
   .footer {
     padding: 1.5rem 1rem;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 1.2rem;
   }
-  
+
   .footer-section h3 {
     font-size: 1.1rem;
   }
-  
+
   .footer-section p {
     font-size: 0.9rem;
   }

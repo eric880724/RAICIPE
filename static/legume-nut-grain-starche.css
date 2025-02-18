@@ -7,7 +7,7 @@
 
 .container {
   background-image: url("/static/images/frame-23.png");
-  background-size: contain;
+  background-size: 100% 100%;
   background-position: auto;
   background-repeat: no-repeat;
   background-attachment: scroll; /* 背景能隨網頁滑動 */
