@@ -395,7 +395,7 @@
   display: flex;
   flex-direction: column; /* 改為縱向排列以容納標題和功能區 */
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 }
 
 .golden-ratio-left-2 {

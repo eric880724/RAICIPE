@@ -303,32 +303,139 @@
 }
 
 /* 響應式設計 */
-@media (max-width: 1500px) {
-  .ingredients-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-@media (max-width: 1170px) {
-  .ingredients-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 1000px) {
+/* 4K + 超大螢幕(2560px以上) */
+@media screen and (min-width: 2560px) {
   .ingredients-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+  }
+  .ingredient-name {
+    font-size: 1.2em;
+  }
+  .gallery-header h1 {
+    font-size: 2.5em;
+  }
+  .gallery-header p {
+    font-size: 1.8em;
   }
 }
 
-@media (max-width: 780px) {
+/* 桌面螢幕(1200px ~ 2559px) */
+@media screen and (min-width: 1200px) and (max-width: 2559px) {
+  .ingredients-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+  }
+  .ingredient-name {
+    font-size: 1em;
+  }
+  .gallery-header h1 {
+    font-size: 2em;
+  }
+  .gallery-header p {
+    font-size: 1.2em;
+  }
+}
+
+/* 平板(768px ~ 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    background-size: cover;
+    background-position: center;
+  }
+  .ingredients-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+  .ingredient-name {
+    font-size: 0.9em;
+  }
+  .header {
+    padding: 10px 20px;
+  }
+  .logo img {
+    width: 120px;
+    height: 85px;
+  }
+  .search-bar {
+    flex: 0.5;
+    width: 50%;
+    margin-left: 0;
+  }
+  .gallery-header h1 {
+    font-size: 1.8em;
+  }
+  .gallery-header p {
+    font-size: 1.1em;
+  }
+}
+
+/* 大型手機(576px ~ 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .container {
+    background-size: cover;
+    background-position: center;
+  }
   .ingredients-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .ingredient-name {
+    font-size: 0.8em;
+  }
+  .header {
+    padding: 10px;
+  }
+  .logo img {
+    width: 100px;
+    height: 70px;
+  }
+  .search-bar {
+    flex: 0.7;
+    width: 70%;
+    margin-left: 0;
+  }
+  .gallery-header h1 {
+    font-size: 1.6em;
+  }
+  .gallery-header p {
+    font-size: 1em;
   }
 }
 
-@media (max-width: 550px) {
+/* 小型手機 (575px以下) */
+@media screen and (max-width: 575px) {
+  .container {
+    background-size: cover;
+    background-position: center;
+  }
   .ingredients-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .ingredient-name {
+    font-size: 0.65em;
+    padding: 5px;
+  }
+  .header {
+    padding: 5px;
+  }
+  .logo img {
+    width: 80px;
+    height: 60px;
+  }
+  .search-bar {
+    flex: 0.9;
+    width: 90%;
+    margin-left: 0;
+  }
+  .search-bar input {
+    font-size: 14px;
+  }
+  .gallery-header h1 {
+    font-size: 1.4em;
+  }
+  .gallery-header p {
+    font-size: 0.9em;
   }
 }
