@@ -241,7 +241,7 @@
 .progress-steps {
   display: flex;
   justify-content: space-between;
-  position: absolute;
+  position: relative;
   width: 100%;
   top: 30px;
 }
@@ -377,7 +377,7 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.5s ease;
-  padding: 20px;
+  padding: 3% 8%; /* 減少上下間距，保持左右間距 */
   box-sizing: border-box;
 }
 
@@ -481,8 +481,21 @@
 
 /* h2標題 */
 .scan-slide h2 {
-  margin-top: -80px; /* 往上移動標題 */
+  margin-top: -40px; /* 減少負margin值 */
   margin-bottom: 10px; /* 保持與selector的間距 */
+}
+
+/* 針對較小高度的螢幕調整標題位置 */
+@media screen and (max-height: 800px) {
+  .scan-slide h2 {
+    margin-top: -30px;
+  }
+}
+
+@media screen and (max-height: 765px) {
+  .scan-slide h2 {
+    margin-top: -20px;
+  }
 }
 
 /* 模型選擇 */
@@ -674,9 +687,10 @@ select {
   align-items: center;
   overflow: hidden; /* 控制溢出範圍 */
 }
-
 .recipe-image img {
-  max-width: 850px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   border-radius: 10px;
 }
 
@@ -759,63 +773,379 @@ button {
 }
 
 /* 響應式設計 */
-@media (max-width: 768px) {
+/* 4K + 超大螢幕(2560px以上) */
+@media screen and (min-width: 2560px) {
   .header {
-    flex-direction: column;
-    gap: 20px;
+    padding: 40px 25%;
+    margin-top: 40px;
   }
-
-  .progress-container {
-    width: 90%;
-  }
-
-  .progress-steps {
-    flex-direction: column;
-    align-items: center;
-    position: static;
-    margin-top: 10px;
-  }
-
-  .step {
-    margin: 5px 0;
-  }
-
   .logo img {
-    width: 50vw;
+    width: 160px;
+    height: 120px;
   }
-
-  .main-content {
-    flex-direction: column;
+  .dropdown {
+    width: 40px;
+    height: 35px;
   }
-
-  .chatbot-window {
-    width: 280px;
-    height: 350px;
-}
-
-  .button-group {
-    flex-direction: column;
+  .line {
+    height: 6px;
   }
-
-  .capture-btn,
-  .upload-btn {
-    width: 100%;
+  h2 {
+    margin-top: -40px;
+    font-size: 36px;
   }
-
-  .preview-area {
-    height: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    padding: 10px;
-  }
-
   #sign-in-btn,
   #sign-up-btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    margin-left: 25px;
+  }
+  .model-selector {
+    font-size: 18px;
+    padding: 15px 40px 15px 20px;
+  }
+  .capture-btn {
+    font-size: 24px;
+  }
+  .ingredient-carousel {
+    gap: 25px;
+    padding: 30px;
+  }
+  .ingredient-card {
+    width: 300px;
+  }
+  .ingredient-card img {
+    height: 250px;
+  }
+  .ingredient-details h3 {
+    font-size: 22px;
+    padding: 15px;
+  }
+  .recipe-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  .recipe-name {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  .recipe-image img {
+    max-width: 90vw;
+    max-height: 80vh;
+  }
+  .recipe-step {
+    font-size: 22px;
+    padding: 20px;
+  }
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+}
+
+/* 桌面螢幕(1200px ~ 2559px) */
+@media screen and (min-width: 1200px) and (max-width: 2559px) {
+  h2 {
+    font-size: 28px;
+  }
+  .model-selector {
+    font-size: 18px;
+  }
+  .capture-btn {
+    font-size: 18px;
+  }
+  .ingredient-card {
+    width: 220px;
+  }
+  .ingredient-card img {
+    height: 180px;
+  }
+  .ingredient-details h3 {
+    font-size: 18px;
+    padding: 12px;
+  }
+  .recipe-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  .recipe-name {
+    font-size: 22px;
+  }
+  .recipe-image img {
+    max-width: 85vw;
+    max-height: 75vh;
+  }
+  .recipe-step {
+    font-size: 18px;
+    padding: 15px;
+  }
+}
+
+/* 筆電螢幕(1024px ~ 1199px) */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+  h2 {
+    font-size: 24px;
+  }
+  .model-selector {
+    font-size: 16px;
+  }
+  .capture-btn {
+    font-size: 16px;
+  }
+  .ingredient-card {
+    width: 200px;
+  }
+  .ingredient-card img {
+    height: 160px;
+  }
+  .ingredient-details h3 {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .recipe-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  .recipe-name {
+    font-size: 20px;
+  }
+  .recipe-image img {
+    max-width: 85vw;
+    max-height: 75vh;
+  }
+  .recipe-step {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* 平板(768px ~ 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .header {
+    padding: 15px 10%;
+    flex-direction: row; /* 改為橫向排列 */
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo img {
+    width: 60px;
+    height: 45px;
+    right: 20px;
+  }
+  #sign-in-btn,
+  #sign-up-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  .container {
+    background-size: cover; /* 確保背景圖片完整覆蓋 */
+    background-position: center;
+  }
+  h2 {
+    font-size: 22px;
+    margin-top: -30px;
+  }
+  .model-selector {
+    font-size: 15px;
+  }
+  .capture-btn {
+    font-size: 15px;
+  }
+  .ingredient-carousel {
+    gap: 15px;
+    padding: 15px;
+  }
+  .ingredient-card {
+    width: 180px;
+  }
+  .ingredient-card img {
+    height: 140px;
+  }
+  .ingredient-details h3 {
+    font-size: 15px;
+    padding: 8px;
+  }
+  .recipe-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .recipe-name {
+    font-size: 18px;
+  }
+  .recipe-image img {
+    max-width: 85vw;
+    max-height: 75vh;
+  }
+  .recipe-step {
+    font-size: 15px;
+    padding: 10px;
+  }
+  .step-number {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+}
+
+/* 大型手機(576px ~ 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .header {
+    padding: 10px 5%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo img {
+    width: 50px;
+    height: 40px;
+    right: 15px;
+  }
+  .container {
+    background-size: cover;
+    background-position: center;
+  }
+  .dropdown {
+    width: 25px;
+    height: 20px;
+  }
+  .line {
+    height: 3px;
+  }
+  .dropdown .menu {
+    width: 150px;
+    left: -150px;
+  }
+  .dropdown .menu a {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: -25px;
+  }
+  .model-selector {
+    font-size: 14px;
+  }
+  .capture-btn {
+    font-size: 14px;
+  }
+  .ingredient-carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+  .ingredient-card {
     width: 100%;
-    margin-left: 0;
-    margin-top: 10px;
+  }
+  .ingredient-card img {
+    height: 120px;
+  }
+  .ingredient-details h3 {
+    font-size: 14px;
+    padding: 6px;
+  }
+  .recipe-title {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+  .recipe-name {
+    font-size: 16px;
+  }
+  .recipe-image img {
+    max-width: 85vw;
+    max-height: 75vh;
+  }
+  .recipe-step {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .step-number {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+}
+
+/* 小型手機(575px以下) */
+@media screen and (max-width: 575px) {
+  .header {
+    padding: 8px 3%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo img {
+    width: 45px;
+    height: 35px;
+    right: 10px;
+  }
+  .container {
+    background-size: cover;
+    background-position: center;
+  }
+  .dropdown {
+    width: 22px;
+    height: 18px;
+  }
+  .line {
+    height: 2px;
+  }
+  .dropdown .menu {
+    width: 130px;
+    left: -130px;
+  }
+  .dropdown .menu a {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  h2 {
+    font-size: 18px;
+    margin-top: -20px;
+  }
+  .model-selector {
+    font-size: 13px;
+  }
+  .capture-btn {
+    font-size: 13px;
+  }
+  .ingredient-carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+  .ingredient-card {
+    width: 100%;
+  }
+  .ingredient-card img {
+    height: 100px;
+  }
+  .ingredient-details h3 {
+    font-size: 13px;
+    padding: 5px;
+  }
+  .recipe-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .recipe-name {
+    font-size: 15px;
+  }
+  .recipe-image img {
+    max-width: 95vw;
+    max-height: 70vh;
+  }
+  .recipe-step {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .step-number {
+    width: 22px;
+    height: 22px;
+    font-size: 13px;
+    margin-right: 8px;
   }
 }
