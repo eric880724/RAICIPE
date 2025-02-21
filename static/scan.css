@@ -481,21 +481,9 @@
 
 /* h2標題 */
 .scan-slide h2 {
-  margin-top: -40px; /* 減少負margin值 */
-  margin-bottom: 10px; /* 保持與selector的間距 */
-}
-
-/* 針對較小高度的螢幕調整標題位置 */
-@media screen and (max-height: 800px) {
-  .scan-slide h2 {
-    margin-top: -30px;
-  }
-}
-
-@media screen and (max-height: 765px) {
-  .scan-slide h2 {
-    margin-top: -20px;
-  }
+  margin-top: -40px;
+  margin-bottom: 10px;
+  transition: margin-top 0.3s ease;
 }
 
 /* 模型選擇 */
@@ -1147,5 +1135,94 @@ button {
     height: 22px;
     font-size: 13px;
     margin-right: 8px;
+  }
+}
+
+/* "掃描或上傳你的食材"微調 */
+/* 針對較小高度的螢幕調整標題位置 */
+@media screen and (max-height: 800px) {
+  .scan-slide h2 {
+    margin-top: -30px;
+  }
+}
+
+@media screen and (max-height: 765px) {
+  .scan-slide h2 {
+    margin-top: -20px;
+  }
+}
+
+/* 低螢幕高度的調整 */
+@media screen and (max-height: 720px) {
+  .scan-slide h2 {
+    margin-top: -15px;
+    margin-bottom: 5px;
+    font-size: 22px;
+  }
+  
+  .model-selector {
+    margin-bottom: 30px;
+    padding: 8px 25px 8px 10px;
+    font-size: 14px;
+  }
+  
+  .preview-area {
+    height: 400px;
+    margin-top: -25px;
+  }
+  
+  .button-group {
+    margin: 15px 0;
+  }
+  
+  .capture-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+/* 更低螢幕高度的調整 */
+@media screen and (max-height: 640px) {
+  .scan-slide h2 {
+    margin-top: -10px;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  
+  .model-selector {
+    margin-bottom: 20px;
+    padding: 6px 20px 6px 8px;
+    font-size: 13px;
+  }
+  
+  .preview-area {
+    height: 350px;
+    margin-top: -20px;
+  }
+  
+  .button-group {
+    margin: 10px 0;
+  }
+  
+  .capture-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+  }
+}
+
+/* 極低螢幕高度的調整 */
+@media screen and (max-height: 580px) {
+  .scan-slide h2 {
+    margin-top: -5px;
+    font-size: 18px;
+  }
+  
+  .model-selector {
+    margin-bottom: 15px;
+  }
+  
+  .preview-area {
+    height: 300px;
+    margin-top: -15px;
   }
 }
