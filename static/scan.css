@@ -1226,3 +1226,14 @@ button {
     margin-top: -15px;
   }
 }
+
+/* 進度條字體微調 */
+@media screen and (min-width: 372px) and (max-width: 437px) {
+  .step {
+      word-break: break-all;
+      width: 50px;
+      text-align: center;
+      line-height: 1.2;
+      padding: 5px;
+  }
+}
