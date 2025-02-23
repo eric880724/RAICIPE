@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAICIPE掃描食材</title>
     <link rel="stylesheet" href="/static/scan.css"> <!-- 連結food.css -->
+    <link rel="stylesheet" href="/static/customlist.css">
     <link rel="icon" href="/static/images/logo-7.png"> <!-- 網頁圖示 -->
 </head>
 <body>
@@ -36,7 +37,7 @@
     <div class="container">
         <header class="header">
             <div class="logo img">
-                <a href="/templates/main.html"> <!-- Logo連結主頁 -->
+                <a href="/main"> <!-- Logo連結主頁 -->
                     <img src="/static/images/logo-7.png" alt="Logo">
                 </a>
             </div>
@@ -56,8 +57,12 @@
                 <div class="line line-2"></div>
                 <div class="line line-3"></div>
                 <div class="menu">
-                    <a href="/templates/main.html">主頁</a>
-                    <a href="/templates/scan.html">掃描食材</a>
+                    <a href="/main">主頁</a>
+                    <a href="/scan">掃描食材</a>
+                    <a href="/fruit">水果類</a>
+                    <a href="/vegetable">蔬菜類</a>
+                    <a href="/seasoning">調味類</a>
+                    <a href="/legume-nut-grain-starche">豆類、堅果穀物、澱粉類</a>
                     <div class="#sign-in-btn, #sign-up-btn"> <!-- 登入按鈕 -->
                         <button id="sign-in-btn">登入</button>
                         <button id="sign-up-btn">註冊</button>
@@ -67,18 +72,18 @@
         </header>
         <div class="main-content">
             <!-- 掃描區 -->
-            <div class="slideshow-container">
+            <div class="slideshow-container" id="slideshow-container">
                 <!-- 第一部分：食材掃描 -->
                 <section class="slide scan-slide active" size="5">
                     <h2>掃描或上傳你的食材</h2>
                     <select class="model-selector">
+                        <option>best_v2</option>
                         <option>請選擇掃描模型</option>
                         <option>best_fruit_v21</option>
-                        <option>best_v2</option>
                     </select>
                     <div class="preview-area">
                         <div id="preview-placeholder"></div>
-                        <video id="video" autoplay style="opacity: 0;"></video>
+                        <video id="video" autoplay style="opacity: 1;"></video>
                         <p id="camera-warning" style="display: none; color: red;">攝影機未啟動</p>
                     </div>
                     <div class="button-group">
@@ -89,96 +94,25 @@
                 <!-- 第二部分：食材圖卡 -->
                 <section class="slide ingredient-slide">
                     <h2>已掃描食材</h2>
-                    <div class="ingredient-carousel">
-                        <div class="ingredient-card">
-                            <img src="/static/images/2.png" alt="食材1">
-                            <div class="ingredient-details">
-                                <h3>蘋果</h3>
-                            </div>
-                        </div>
-                        <div class="ingredient-card">
-                            <img src="/static/images/3.png" alt="食材2">
-                            <div class="ingredient-details">
-                                <h3>草莓</h3>
-                            </div>
-                        </div>
-                        <div class="ingredient-card">
-                            <img src="/static/images/4.png" alt="食材3">
-                            <div class="ingredient-details">
-                                <h3>草莓</h3>
-                            </div>
-                        </div>
-                        <div class="ingredient-card">
-                            <img src="/static/images/6.png" alt="食材4">
-                            <div class="ingredient-details">
-                                <h3>草莓</h3>
-                            </div>
-                        </div>
-                        <div class="ingredient-card">
-                            <img src="/static/images/8.png" alt="食材5">
-                            <div class="ingredient-details">
-                                <h3>草莓</h3>
-                            </div>
-                        </div>
-                        <div class="ingredient-card">
-                            <img src="/static/images/9.png" alt="食材6">
-                            <div class="ingredient-details">
-                                <h3>草莓</h3>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="ingredient-carousel"></div>
                     <div class="button-group">
-                        <button id="capture-btn" class="capture-btn">確認食材</button>
+                        <button id="confirm-button" class="capture-btn">確認食材</button>
                     </div>
                 </section>
                 <!-- 第三部分：食譜圖片生成 -->
                 <section class="slide recipe-slide">
-                    <h2 class="recipe-title">為你生成的食譜</h2>
+                    <h2 class="recipe-title" id="recipe-content-0"></h2>
+                    <div class="recipe-container">
+                        <div class="recipe-image">
+                            <img src="/static/images/272.png" alt="食譜圖片">
+                        </div>
+                    </div>
+                </section>
+                <section class="slide recipe-slide">
+                    <h2 class="recipe-title">Bon appétit!</h2>
                     <div class="recipe-container">
                         <div class="recipe-image">
                             <img src="/static/images/25.png" alt="食譜圖片">
-                        </div>
-                    </div>
-                    <div class="button-group">
-                        <button id="capture-btn" class="capture-btn">確認食譜</button>
-                    </div>
-                </section>
-                <!-- 第四部分：食譜製作步驟 -->
-                <section class="slide recipe-slide">
-                    <h2 class="step-title">食譜製作步驟</h2>
-                    <h3 class="recipe-name">蘋果雞胸肉沙拉</h3>
-                    <div class="step-content">
-                        <div class="recipe-steps-wrapper">
-                            <div class="recipe-steps">
-                                <div class="recipe-step">
-                                    <span class="step-number">1</span>
-                                    <p>將雞胸肉切成小塊</p>
-                                </div>
-                                <div class="recipe-step">
-                                    <span class="step-number">2</span>
-                                    <p>蘋果切丁，與雞肉混合</p>
-                                </div>
-                                <div class="recipe-step">
-                                    <span class="step-number">3</span>
-                                    <p>加入沙拉醬攪拌均勻</p>
-                                </div>
-                                <div class="recipe-step">
-                                    <span class="step-number">3</span>
-                                    <p>加入沙拉醬攪拌均勻</p>
-                                </div>
-                                <div class="recipe-step">
-                                    <span class="step-number">3</span>
-                                    <p>加入沙拉醬攪拌均勻</p>
-                                </div>
-                                <div class="recipe-step">
-                                    <span class="step-number">3</span>
-                                    <p>加入沙拉醬攪拌均勻</p>
-                                </div>
-                                <div class="recipe-step">
-                                    <span class="step-number">3</span>
-                                    <p>加入沙拉醬攪拌均勻</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
@@ -186,6 +120,7 @@
         </div>
     </div>
     <!-- 導入javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="/static/chatbot.js"></script>
     <script src="/static/dropdown-icon.js"></script>
     <script src="/static/food-camera.js"></script>

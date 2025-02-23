@@ -73,7 +73,7 @@
   bottom: 70px;
   right: 0;
   width: 300px;
-  background-color: rgba(255, 248, 155, 0.95);
+  background-color: rgba(255, 249, 165, 0.95);
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   opacity: 0;
@@ -137,6 +137,88 @@
   background-color: rgba(249, 249, 249, 0.9);
 }
 
+/* 聊天訊息樣式 */
+.chat-message {
+  margin: 10px 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+  width: fit-content;
+}
+
+.user-message {
+  margin-left: auto;
+  background-color: #007bff;
+  color: white;
+}
+
+.bot-message {
+  margin-right: auto;
+  background-color: #f0f0f0;
+  color: black;
+}
+
+/* Markdown 樣式 */
+.bot-message strong,
+.bot-message b {
+  font-weight: bold;
+}
+
+.bot-message em,
+.bot-message i {
+  font-style: italic;
+}
+
+.bot-message ul,
+.bot-message ol {
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.bot-message li {
+  margin: 2px 0;
+}
+
+.bot-message p {
+  margin: 5px 0;
+}
+
+.bot-message code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.bot-message pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 8px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 5px 0;
+}
+
+.bot-message a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.bot-message a:hover {
+  text-decoration: underline;
+}
+
+/* 加载信息样式 */
+.loading-message {
+   margin: 10px 0;
+   padding: 8px 12px;
+   font-style: italic;
+   color: #666;
+   text-align: left;
+   width: fit-content;
+}
+
 /* 輸入區域 */
 .chatbot-input {
   display: flex;
@@ -156,8 +238,8 @@
 
 .chatbot-input .send-btn {
   padding: 8px 15px;
-  background-color: rgb(255, 249, 165);
-  color: rgb(0, 0, 0);
+  background-color: rgb(255, 156, 50);
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -348,6 +430,10 @@
   margin-left: 17px;
 }
 
+.hidden {
+  display: none;
+}
+
 #sign-in-btn:hover,
 #sign-up-btn:hover {
   transform: scale(1.03);
@@ -367,18 +453,32 @@
 }
 
 .slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+    padding: 3% 8%; /* 減少上下間距，保持左右間距 */
+    box-sizing: border-box;
+    will-change: transform, opacity, visibility;
+}
+
+/* 特別設置最後一個recipe-slide的樣式 */
+#recipe-slide {
+  height: 100%; /* 減少上方空間 */
+  margin-top: 200px; /* 增加上方間距 */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.recipe-content {
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.5s ease;
-  padding: 3% 8%; /* 減少上下間距，保持左右間距 */
-  box-sizing: border-box;
+  height: auto;
 }
 
 .slide.active {
@@ -448,34 +548,35 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* 橫向滑動效果 */
-.slide.ingredient-slide {
-  transform: translateX(100%);
+/* 固定前三頁slide位置 */
+.scan-slide,
+.ingredient-slide,
+.recipe-slide {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
 }
 
-.slide.ingredient-slide.active {
-  transform: translateX(0);
+.scan-slide.active,
+.ingredient-slide.active,
+.recipe-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
 }
 
-.slide.ingredient-slide.prev {
-  transform: translateX(-100%);
-}
-
-/* 垂直滑動效果 */
-.slide.recipe-slide {
+/* 第四頁可滑動 */
+#recipe-slide {
   transform: translateY(100%);
+  opacity: 1;
+  visibility: visible;
 }
 
-.slide.recipe-slide.active {
+#recipe-slide.active {
   transform: translateY(0);
 }
 
-.slide.recipe-slide.prev {
-  transform: translateY(-100%);
-}
-
 .slide.active {
-  transform: translate(0);
   z-index: 10;
 }
 
@@ -545,7 +646,7 @@ select {
 .preview-area {
   width: 100%;
   height: 500px;
-  border: 2px dashed #000000; /* 虛線邊框 */
+  /* border: 2px dashed #000000; */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -562,8 +663,13 @@ select {
   display: flex;
   gap: 10px;
   margin: 20px 0;
-  justify-content: center; /* 讓按鈕在水平方向居中 */
-  flex-wrap: wrap; /* 如果按鈕太多，可以換行 */
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
 }
 
 .capture-btn {
@@ -576,6 +682,8 @@ select {
   cursor: pointer;
   font-size: 16px;
   transition: transform 0.2s ease;
+  min-width: 120px;
+  max-width: 200px;
 }
 
 /* .capture-btn-refresh {
@@ -660,6 +768,20 @@ select {
 .ingredient-details h3 {
   margin: 0;
   font-size: 16px; /* 調整標題大小 */
+}
+
+.recipe-loading-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 25px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-style: italic;
+  color: #666;
+  z-index: 1000;
 }
 
 /* 食譜 */
@@ -1161,23 +1283,32 @@ button {
   }
   
   .model-selector {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding: 8px 25px 8px 10px;
     font-size: 14px;
   }
   
   .preview-area {
-    height: 400px;
-    margin-top: -25px;
+    height: 380px;
+    margin-top: -15px;
   }
   
   .button-group {
-    margin: 15px 0;
+    margin: 10px auto;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .capture-btn {
     padding: 8px 20px;
     font-size: 14px;
+  }
+
+  #recipe-slide {
+    height: calc(100vh - 120px);
+    margin-top: 80px;
   }
 }
 
@@ -1224,6 +1355,46 @@ button {
   .preview-area {
     height: 300px;
     margin-top: -15px;
+  }
+}
+
+/* Loading 動畫樣式 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.loading-text {
+  font-size: 18px;
+  color: #333;
+}
+
+.loading-animation {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.loading-square {
+  width: 10px;
+  height: 10px;
+  background-color: #ff6432;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -5px 0 0 -5px;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translateX(15px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(15px) rotate(-360deg);
   }
 }
 

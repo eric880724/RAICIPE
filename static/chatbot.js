@@ -6,9 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatInput = document.querySelector('.chatbot-input input');
     const chatMessages = document.querySelector('.chatbot-messages');
 
+    // 儲存當前對話ID
+    let currentConversationId = null;
+
     // 切換聊天視窗
     chatIcon.addEventListener('click', function() {
         chatContainer.classList.toggle('active');
+        if (chatContainer.classList.contains('active') && currentConversationId) {
+            loadChatHistory();
+        }
     });
 
     // 關閉聊天視窗
@@ -16,22 +22,90 @@ document.addEventListener('DOMContentLoaded', function() {
         chatContainer.classList.remove('active');
     });
 
-    // 發送訊息功能
-    function sendMessage() {
-        const message = chatInput.value.trim();
-        if (message) {
-            // 創建用戶訊息元素
-            const userMessage = document.createElement('div');
-            userMessage.style.textAlign = 'right';
-            userMessage.style.margin = '10px 0';
-            userMessage.innerHTML = `${message}`;
-            chatMessages.appendChild(userMessage);
+    // 載入對話歷史
+    async function loadChatHistory() {
+        if (!currentConversationId) return;
 
-            // 清空輸入框
-            chatInput.value = '';
+        try {
+            const response = await fetch(`/chat/history?conversation_id=${currentConversationId}`);
+            const data = await response.json();
             
-            // 滾動到最新訊息
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            if (data.history) {
+                chatMessages.innerHTML = ''; // 清空現有訊息
+                data.history.forEach(msg => {
+                    appendMessage(msg.content, msg.role === 'user');
+                });
+            }
+        } catch (error) {
+            console.error('載入對話歷史失敗:', error);
+        }
+    }
+
+    // 添加訊息到聊天視窗
+    function appendMessage(message, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
+        
+        if (isUser) {
+            // 用戶訊息保持純文字
+            messageDiv.textContent = message;
+        } else {
+            // 機器人訊息使用 marked 解析 markdown
+            messageDiv.innerHTML = marked.parse(message);
+        }
+        
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // 發送訊息到後端
+    async function sendMessage() {
+        const message = chatInput.value.trim();
+        if (!message) return;
+
+        // 顯示用戶訊息
+        appendMessage(message, true);
+        chatInput.value = '';
+
+        try {
+            // 顯示載入中動畫
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'loading-message';
+            loadingDiv.textContent = '正在思考...';
+            chatMessages.appendChild(loadingDiv);
+
+            // 發送請求到後端
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: message,
+                    conversation_id: currentConversationId,
+                    recipe_generated: recipeGeneratedconfirmed
+                })
+            });
+
+            // 移除載入中動畫
+            loadingDiv.remove();
+
+            const data = await response.json();
+            
+            if (data.error) {
+                appendMessage('抱歉，發生了一些錯誤。請稍後再試。', false);
+                return;
+            }
+
+            // 更新對話ID
+            currentConversationId = data.conversation_id;
+            
+            // 顯示助手回應
+            appendMessage(data.response, false);
+
+        } catch (error) {
+            console.error('發送訊息失敗:', error);
+            appendMessage('抱歉，發生了一些錯誤。請稍後再試。', false);
         }
     }
 

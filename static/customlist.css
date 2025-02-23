@@ -1,0 +1,146 @@
+.custom-list {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* 主標題 h2 樣式 */
+.custom-list h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 32px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.custom-list h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+/* h3 標題樣式 */
+.custom-list h3 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin: 25px 0 20px;
+    padding-left: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.custom-list h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 100%;
+    background: #3498db;
+    border-radius: 3px;
+}
+
+.custom-list h3:hover {
+    transform: translateX(10px);
+    color: #3498db;
+}
+
+/* h4 標題樣式 */
+.custom-list h4 {
+    color: #34495e;
+    font-size: 20px;
+    margin: 20px 0 15px;
+    padding-left: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.custom-list h4::before {
+    content: "◆";
+    position: absolute;
+    left: -10px;
+    color: #e74c3c;
+    font-size: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.custom-list h4:hover {
+    padding-left: 25px;
+    color: #e74c3c;
+}
+
+.custom-list h4:hover::before {
+    opacity: 1;
+    left: 5px;
+}
+
+.custom-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.custom-list li {
+    min-width: 50vw;
+    position: relative;
+    padding: 15px 0 15px 50px;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.custom-list li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* 綠色蔬果 (如菠菜、花椰菜) */
+.custom-list li::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: #2ECC71;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.2);
+}
+
+/* 紅色蔬果 (如番茄、紅椒) */
+.custom-list li:nth-child(2)::before {
+    background: #E74C3C;
+    box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.2);
+}
+
+/* 黃色蔬果 (如玉米、南瓜) */
+.custom-list li:nth-child(3)::before {
+    background: #F1C40F;
+    box-shadow: 0 0 0 4px rgba(241, 196, 15, 0.2);
+}
+
+/* 紫色蔬果 (如火龍果、茄子) */
+.custom-list li:nth-child(4)::before {
+    background: #6E00B3;
+    box-shadow: 0 0 0 4px rgba(157, 0, 255, 0.2);
+}
+
+/* 黑色蔬果 (如黑木耳、黑豆) */
+.custom-list li:nth-child(5)::before {
+    background: #34495E;
+    box-shadow: 0 0 0 4px rgba(52, 73, 94, 0.2);
+}
